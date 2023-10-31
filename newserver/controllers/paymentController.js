@@ -24,14 +24,14 @@ const paymentVerification = async (req, res) => {
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
   const expectedSignature = crypto
-    .createHmac("sha256", process.env.RAZORPAY_API_SECRET)
+    .createHmac("sha256", "4W0FqN6bWzwmcPlC38sbpVvb")
     .update(body.toString())
     .digest("hex");
 
   const isAuthentic = expectedSignature === razorpay_signature;
 
   if (isAuthentic) {
-    res.redirect("http://localhost:3000/");
+    res.redirect("https://flexxit-m3sx.vercel.app/");
   } else {
     res.status(400).json({
       success: false,
