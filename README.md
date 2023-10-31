@@ -21,3 +21,7 @@ and server npm run dev.
 
 # Demo 
 https://flexxit-m3sx.vercel.app/
+
+# Screenshots
+![Screenshot (286)](https://github.com/GAUTAMIBHT/Flexxit/assets/108286819/e07ffbe3-3995-4dae-adfb-1c2ebbf6ddb3)
+
