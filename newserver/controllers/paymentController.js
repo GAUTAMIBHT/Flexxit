@@ -31,7 +31,7 @@ const paymentVerification = async (req, res) => {
   const isAuthentic = expectedSignature === razorpay_signature;
 
   if (isAuthentic) {
-    res.redirect("http://localhost:3000/");
+    res.redirect("https://flexxit-m3sx.vercel.app/");
   } else {
     res.status(400).json({
       success: false,
