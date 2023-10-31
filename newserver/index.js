@@ -1,27 +1,9 @@
 
-import Razorpay from "razorpay";
-import  express  from "express";
-import { config } from "dotenv";
-import paymentRoute from "./routes/paymentRoute.js";
-import cors from "cors";
+const app = require('./app');
 
-config({path:"./config/config.env"})
-
-const app = express();
-app.use(cors({
-    origin:["https://flexxit-m3sx.vercel.app"],
-    methods:["GET","POST"],
-    credentials:true,
-}))
-app.use(express.json());
-app.use("/", (req, res) => {
-  res.send("server run");
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+ 
+  console.log(`Listening: http://localhost:${port}`);
+ 
 });
-app.use(express.urlencoded({extended: true}));
-app.use("/api", paymentRoute);
-
-app.get("/api/getkey", (req, res) =>
-  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
-);
-
-app.listen(5000, console.log("5000"));

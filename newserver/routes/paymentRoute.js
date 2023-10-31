@@ -1,8 +1,12 @@
-import express from 'express';
-import { checkout, paymentVerification } from '../controllers/paymentController.js';
+const express = require("express");
 
+const paymentController = require("../controllers/paymentController.js")
 const router = express.Router();
-router.route("/checkout").post(checkout);
+router.get("/test", (req, res) =>
+  res.status(200).json({ key: "4W0FqN6bWzwmcPlC38sbpVvb" })
+);
 
-router.route("/paymentverification").post(paymentVerification);
-export default router;
+router.post("/checkout", paymentController.checkout);
+
+router.post("/paymentverification", paymentController.paymentVerification);
+module.exports = router;

@@ -1,29 +1,24 @@
-
-import crypto from "crypto"
-
-
-export const instance = new Razorpay({
-  key_id: process.env.RAZORPAY_API_KEY,
-  key_secret: process.env.RAZORPAY_API_SECRET,
+const crypto = require("crypto");
+const Razorpay = require("razorpay");
+const instance = new Razorpay({
+  key_id: "rzp_test_Z9EfpRPNHl5Gak",
+  key_secret: "4W0FqN6bWzwmcPlC38sbpVvb",
 });
+const checkout = async (req, res) => {
+  const options = {
+    amount: Number(100),
+    currency: "INR",
+  };
+  const order = await instance.orders.create(options);
 
+  res.status(200).json({
+    success: true,
+    order,
+  });
+};
 
-export const checkout =async (req,res) => {
-    const options = {
-        amount: Number(req.body.amount * 100),
-        currency: "INR",
-      };
-      const order = await instance.orders.create(options);
-     
-      res.status(200).json({
-        success:true,
-        order,
-      });
-
-}
-
-export const paymentVerification =async (req,res) => {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+const paymentVerification = async (req, res) => {
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
     req.body;
 
   const body = razorpay_order_id + "|" + razorpay_payment_id;
@@ -33,19 +28,14 @@ export const paymentVerification =async (req,res) => {
     .update(body.toString())
     .digest("hex");
 
-const isAuthentic = expectedSignature === razorpay_signature;
+  const isAuthentic = expectedSignature === razorpay_signature;
 
-if (isAuthentic) {
-
-
-  res.redirect(
-    'https://flexxit-m3sx.vercel.app/'
-  );
-}else{
+  if (isAuthentic) {
+    res.redirect("http://localhost:3000/");
+  } else {
     res.status(400).json({
-        success: false,
-    }
-
-   
-    );
-  }}
+      success: false,
+    });
+  }
+};
+module.exports = { checkout, paymentVerification };
