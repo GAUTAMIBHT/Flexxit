@@ -1,4 +1,4 @@
-import {instance} from "../server.js"
+import {instance} from "../index.js"
 import crypto from "crypto"
 
 
@@ -33,7 +33,7 @@ if (isAuthentic) {
 
 
   res.redirect(
-    'http://localhost:3000/'
+    'https://flexxit-m3sx.vercel.app/'
   );
 }else{
     res.status(400).json({

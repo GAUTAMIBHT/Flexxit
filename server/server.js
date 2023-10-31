@@ -1,4 +1,4 @@
-import {app} from './app.js';
+
 import Razorpay from "razorpay";
 
 export const instance = new Razorpay({
@@ -6,6 +6,3 @@ export const instance = new Razorpay({
     key_secret: process.env.RAZORPAY_API_SECRET,
   });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is working on port ${process.env.PORT}`)
-})

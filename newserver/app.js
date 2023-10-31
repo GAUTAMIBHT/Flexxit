@@ -5,13 +5,16 @@ import cors from "cors";
 
 config({path:"./config/config.env"})
 
-export const app= express();
+export const app = express();
 app.use(cors({
-    origin:["http://localhost:3001"],
+    origin:["https://flexxit-m3sx.vercel.app"],
     methods:["GET","POST"],
     credentials:true,
 }))
 app.use(express.json());
+app.use("/", (req, res) => {
+  res.send("server run");
+});
 app.use(express.urlencoded({extended: true}));
 app.use("/api", paymentRoute);
 

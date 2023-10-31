@@ -11,8 +11,8 @@ const Membership = () => {
 
   const checkoutHandler  = async (amount) => {
 
-    const {data:{key}} = await axios.get("http://www.localhost:4000/api/getkey")
-    const {data:{order} } = await axios.post("http://localhost:4000/api/checkout", {
+    const {data:{key}} = await axios.get("https://flexxit-server.vercel.app/api/getkey")
+    const {data:{order} } = await axios.post("https://flexxit-server.vercel.app/api/checkout", {
       amount
     })
     const options = {
@@ -23,7 +23,7 @@ const Membership = () => {
       description: "Movie Appllication",
       image: {icon},
       order_id: order.id,
-      callback_url: "http://localhost:4000/api/paymentverification",
+      callback_url: "https://flexxit-server.vercel.app/api/paymentverification",
       prefill: {
           name: "Gaurav Kumar",
           email: "gaurav.kumar@example.com",
