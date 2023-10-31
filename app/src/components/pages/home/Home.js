@@ -13,7 +13,7 @@ import {AiOutlineInfoCircle} from 'react-icons/ai'
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [userId, setUserId] = useState("");
-  const [username, setUsername] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,11 +21,11 @@ const Home = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
         setUserId(user.uid);
-        setUsername(user.displayName);
+ 
 
       }else{
         setUserId("");
-        setUsername("");
+   
       }
     })
   },[userId]);

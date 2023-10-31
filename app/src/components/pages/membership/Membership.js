@@ -7,7 +7,7 @@ import icon from '../../../asserts/main2logo.png'
 
 const Membership = () => {
   const [userId, setUserId] = useState("");
-  const [username, setUsername] = useState("");
+
 
   const checkoutHandler  = async (amount) => {
 
@@ -45,11 +45,11 @@ const Membership = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
         setUserId(user.uid);
-        setUsername(user.displayName);
+      
 
       }else{
         setUserId("");
-        setUsername("");
+       
       }
     })
   },[userId]);
