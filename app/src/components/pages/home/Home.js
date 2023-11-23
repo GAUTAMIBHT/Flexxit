@@ -16,6 +16,7 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+
   useEffect(() => {
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -56,7 +57,7 @@ const Home = () => {
           {popularMovies.map((movie) => (
             <Link
               style={{ textDecoration: "none", color: "white" }}
-              to={`/movie/${movie.id}`}
+              // to={`/movie/${movie.id}`}
             >
               <div className="posterImage">
                 <img
@@ -78,8 +79,8 @@ const Home = () => {
                 </div>
                 <div className="trailer-btn">
                
-                  <button className="trailer" onClick={() => navigate('/player')}> <FaPlay size={20}/>Play</button>
-                  <button className="info"><AiOutlineInfoCircle size={30}/>More Info</button>
+                 <Link to={'/player'}><button className="trailer"> <FaPlay size={20}/>Play</button></Link> 
+                 <Link to={`/movie/${movie.id}`}><button  className="info"><AiOutlineInfoCircle size={30}/>More Info</button></Link> 
                 </div>
               </div>
             </Link>

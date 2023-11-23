@@ -161,6 +161,11 @@
     }
     
 }
+.back-btn{
+    margin-right: 1210px;
+    background-color: transparent;
+    border: none;
+}
 .video-btn{
     border-radius: 6px;
     height: 45px;

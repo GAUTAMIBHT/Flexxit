@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react"
 import "./Movielist.css"
-import { useParams } from "react-router-dom"
+import {useParams } from "react-router-dom"
 import Cards from "../card/Card"
+
 
 const MovieList = () => {
     const [MovieList, setMovieList] = useState([])
@@ -20,7 +21,7 @@ const MovieList = () => {
 
     return (
         <div className="movie__list">
-            <h2 className="list__title">{(type ? type : "").toUpperCase()}</h2>
+              <h2 className="list__title">{(type ? type : "").toUpperCase()}</h2>
             <div className="list__cards">
                 {
                     MovieList.map(movie => (

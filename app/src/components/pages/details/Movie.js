@@ -3,6 +3,8 @@ import "./Movie.css"
 import { useNavigate, useParams } from "react-router-dom";
 import {FaPlay} from 'react-icons/fa'
 import {BsFillHeartFill} from 'react-icons/bs'
+import { IoArrowBackCircle } from "react-icons/io5";
+
 
 const Movie = (props) => {
     const [currentMovieDetail, setMovie] = useState()
@@ -27,6 +29,7 @@ const Movie = (props) => {
 
     return (
         <div className="movie">
+            <button className="back-btn" onClick={() => navigate(-1)}><IoArrowBackCircle color="white" size={40}/></button> 
             <div className="movie__intro">
                 <img alt="" className="movie__backdrop" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.backdrop_path : ""}`} />
             </div>
