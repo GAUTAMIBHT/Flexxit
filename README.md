@@ -1,5 +1,5 @@
 # Flexxit
-Flixit is an movie application like Netflix to watch movies and tv shows online. You can find details about different gener movies and watch their trailer.
+Flixit is a movie application like Netflix to watch movies and tv shows online. You can find details about different gener movies and watch their trailer.
 
 # Features
 Login/Signup page.
